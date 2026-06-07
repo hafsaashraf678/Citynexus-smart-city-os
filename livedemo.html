@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CityNexus - Smart City OS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- AOS - Animate On Scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+    
+    <!-- Particles Background -->
+    <div id="particles-js"></div>
+    
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🏙️ CityNexus</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#architecture">Architecture</a></li>
+                <li><a href="#demo">Live Demo</a></li>
+                <li><a href="#clo-mapping">CLO Mapping</a></li>
+                <li><a href="report.html">Report</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
+            <h1 class="hero-title">CityNexus Smart City OS</h1>
+            <p class="hero-subtitle">Process & Thread Management Framework for Modern Smart Cities</p>
+            <div class="hero-tags">
+                <span class="tag">CEP-3 Project</span>
+                <span class="tag">Operating Systems</span>
+                <span class="tag">Real-Time Systems</span>
+            </div>
+            <button class="cta-button" onclick="scrollToDemo()">🚀 View Live Demo</button>
+        </div>
+        <div class="hero-animation" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+            <div class="city-visual">
+                <div class="cityscape">
+                    <div class="building" style="--height: 150px; --delay: 0s;">
+                        <div class="building-windows"></div>
+                    </div>
+                    <div class="building" style="--height: 200px; --delay: 0.2s;">
+                        <div class="building-windows"></div>
+                    </div>
+                    <div class="building" style="--height: 180px; --delay: 0.4s;">
+                        <div class="building-windows"></div>
+                    </div>
+                    <div class="building" style="--height: 220px; --delay: 0.6s;">
+                        <div class="building-windows"></div>
+                    </div>
+                    <div class="building" style="--height: 160px; --delay: 0.8s;">
+                        <div class="building-windows"></div>
+                    </div>
+                </div>
+                <div class="network-lines">
+                    <svg width="400" height="300" viewBox="0 0 400 300">
+                        <line x1="50" y1="150" x2="150" y2="100" class="connection-line" style="animation-delay: 0s"/>
+                        <line x1="150" y1="100" x2="250" y2="150" class="connection-line" style="animation-delay: 0.5s"/>
+                        <line x1="250" y1="150" x2="350" y2="100" class="connection-line" style="animation-delay: 1s"/>
+                        <line x1="50" y1="150" x2="250" y2="150" class="connection-line" style="animation-delay: 1.5s"/>
+                        <circle cx="50" cy="150" r="8" class="network-node" style="animation-delay: 0s"/>
+                        <circle cx="150" cy="100" r="8" class="network-node" style="animation-delay: 0.5s"/>
+                        <circle cx="250" cy="150" r="8" class="network-node" style="animation-delay: 1s"/>
+                        <circle cx="350" cy="100" r="8" class="network-node" style="animation-delay: 1.5s"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Statement -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Problem Statement</h2>
+            <div class="problem-grid">
+                <div class="problem-card tilt-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="icon">⚠️</div>
+                    <h3>Challenge</h3>
+                    <p>Traditional city management systems lack efficient resource allocation and real-time coordination between multiple urban services.</p>
+                </div>
+                <div class="problem-card tilt-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="icon">💡</div>
+                    <h3>Solution</h3>
+                    <p>CityNexus applies OS principles - treating city services as processes and tasks as threads with intelligent scheduling.</p>
+                </div>
+                <div class="problem-card tilt-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="icon">🎯</div>
+                    <h3>Impact</h3>
+                    <p>Optimized resource utilization, faster emergency response, and seamless inter-service communication.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OS Architecture -->
+    <section id="architecture" class="section gray-bg">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">System Architecture</h2>
+            <div class="architecture-visual" data-aos="fade-up" data-aos-delay="200">
+                <div class="arch-diagram">
+                    <svg width="100%" height="600" viewBox="0 0 800 600">
+                        <!-- Layer 5: Hardware -->
+                        <rect x="50" y="500" width="700" height="80" fill="#8b5cf6" rx="10" class="layer-box"/>
+                        <text x="400" y="535" fill="white" font-size="18" font-weight="bold" text-anchor="middle">🔧 Hardware Layer</text>
+                        <text x="400" y="560" fill="white" font-size="12" text-anchor="middle">CPU Cores | Memory | Storage | IoT Sensors</text>
+                        
+                        <!-- Layer 4: Resource Management -->
+                        <rect x="50" y="400" width="700" height="80" fill="#3b82f6" rx="10" class="layer-box"/>
+                        <text x="400" y="435" fill="white" font-size="18" font-weight="bold" text-anchor="middle">💾 Resource Management Layer</text>
+                        <text x="400" y="460" fill="white" font-size="12" text-anchor="middle">Memory Manager | I/O Scheduler | Disk Scheduler</text>
+                        
+                        <!-- Layer 3: Thread Management -->
+                        <rect x="50" y="300" width="700" height="80" fill="#10b981" rx="10" class="layer-box"/>
+                        <text x="400" y="335" fill="white" font-size="18" font-weight="bold" text-anchor="middle">🧵 Thread Management Layer</text>
+                        <text x="400" y="360" fill="white" font-size="12" text-anchor="middle">Thread Scheduler | Synchronization | Mutex & Semaphores</text>
+                        
+                        <!-- Layer 2: Process Management -->
+                        <rect x="50" y="200" width="700" height="80" fill="#f59e0b" rx="10" class="layer-box"/>
+                        <text x="400" y="235" fill="white" font-size="18" font-weight="bold" text-anchor="middle">⚙️ Process Management Layer</text>
+                        <text x="400" y="260" fill="white" font-size="12" text-anchor="middle">Process Scheduler | Priority Manager | Resource Allocator</text>
+                        
+                        <!-- Layer 1: Application -->
+                        <rect x="50" y="100" width="700" height="80" fill="#ef4444" rx="10" class="layer-box"/>
+                        <text x="400" y="135" fill="white" font-size="18" font-weight="bold" text-anchor="middle">🎛️ Application Layer</text>
+                        <text x="400" y="160" fill="white" font-size="12" text-anchor="middle">Traffic | Emergency | Utility | Transport | Security</text>
+                        
+                        <!-- Arrows connecting layers -->
+                        <path d="M 400 180 L 400 200" stroke="white" stroke-width="3" marker-end="url(#arrowhead)" class="flow-arrow"/>
+                        <path d="M 400 280 L 400 300" stroke="white" stroke-width="3" marker-end="url(#arrowhead)" class="flow-arrow"/>
+                        <path d="M 400 380 L 400 400" stroke="white" stroke-width="3" marker-end="url(#arrowhead)" class="flow-arrow"/>
+                        <path d="M 400 480 L 400 500" stroke="white" stroke-width="3" marker-end="url(#arrowhead)" class="flow-arrow"/>
+                        
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+                                <polygon points="0 0, 10 5, 0 10" fill="white"/>
+                            </marker>
+                        </defs>
+                        
+                        <!-- Title -->
+                        <text x="400" y="50" fill="#1e293b" font-size="24" font-weight="bold" text-anchor="middle">CityNexus Architecture</text>
+                    </svg>
+                </div>
+            </div>
+            
+            <!-- Process State Diagram with Explanation -->
+            <div class="state-diagram-section" style="margin-top: 3rem;" data-aos="fade-up" data-aos-delay="400">
+                <h3 style="text-align: center; font-size: 2rem; margin-bottom: 1rem; background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">🔄 Process State Diagram</h3>
+                <p style="text-align: center; font-size: 1.1rem; margin-bottom: 3rem; color: var(--text-light); max-width: 800px; margin-left: auto; margin-right: auto;">
+                    <strong>Program Journey:</strong> When any service (process) starts, it goes through 5 states. Each color shows a specific state.
+                </p>
+                
+                <!-- Color Legend -->
+                <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #4169E1;"></div>
+                        <span><strong>NEW</strong> - Process Created</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #22C55E;"></div>
+                        <span><strong>READY</strong> - Waiting for CPU</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #EF4444;"></div>
+                        <span><strong>RUNNING</strong> - Executing</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #F59E0B;"></div>
+                        <span><strong>WAITING</strong> - I/O or Event</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #8B5CF6;"></div>
+                        <span><strong>TERMINATED</strong> - Completed</span>
+                    </div>
+                </div>
+
+                <svg width="100%" height="450" viewBox="0 0 1000 450" style="max-width: 1000px; margin: 0 auto; display: block;">
+                    <!-- Glow Effects -->
+                    <defs>
+                        <filter id="glow-blue">
+                            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                        <filter id="glow-green">
+                            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                        <filter id="glow-red">
+                            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                        <marker id="arrowhead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+                            <polygon points="0 0, 12 6, 0 12" fill="#1e293b"/>
+                        </marker>
+                    </defs>
+                    
+                    <!-- NEW State -->
+                    <circle cx="120" cy="225" r="70" fill="#4169E1" stroke="#1e40af" stroke-width="3" filter="url(#glow-blue)" class="state-circle">
+                        <animate attributeName="r" values="70;73;70" dur="2s" repeatCount="indefinite"/>
+                    </circle>
+                    <text x="120" y="215" fill="white" font-size="18" font-weight="bold" text-anchor="middle">NEW</text>
+                    <text x="120" y="235" fill="white" font-size="13" text-anchor="middle">Process</text>
+                    <text x="120" y="250" fill="white" font-size="13" text-anchor="middle">Created</text>
+                    
+                    <!-- READY State -->
+                    <circle cx="310" cy="225" r="70" fill="#22C55E" stroke="#15803d" stroke-width="3" filter="url(#glow-green)" class="state-circle">
+                        <animate attributeName="r" values="70;73;70" dur="2s" repeatCount="indefinite" begin="0.3s"/>
+                    </circle>
+                    <text x="310" y="215" fill="white" font-size="18" font-weight="bold" text-anchor="middle">READY</text>
+                    <text x="310" y="235" fill="white" font-size="13" text-anchor="middle">Waiting</text>
+                    <text x="310" y="250" fill="white" font-size="13" text-anchor="middle">for CPU</text>
+                    
+                    <!-- RUNNING State -->
+                    <circle cx="530" cy="225" r="75" fill="#EF4444" stroke="#991b1b" stroke-width="4" filter="url(#glow-red)" class="state-circle">
+                        <animate attributeName="r" values="75;78;75" dur="1.5s" repeatCount="indefinite"/>
+                    </circle>
+                    <text x="530" y="215" fill="white" font-size="20" font-weight="bold" text-anchor="middle">RUNNING</text>
+                    <text x="530" y="240" fill="white" font-size="14" text-anchor="middle">Executing</text>
+                    
+                    <!-- WAITING State -->
+                    <circle cx="530" cy="70" r="65" fill="#F59E0B" stroke="#c2410c" stroke-width="3" class="state-circle">
+                        <animate attributeName="r" values="65;68;65" dur="2s" repeatCount="indefinite" begin="0.6s"/>
+                    </circle>
+                    <text x="530" y="62" fill="white" font-size="17" font-weight="bold" text-anchor="middle">WAITING</text>
+                    <text x="530" y="82" fill="white" font-size="12" text-anchor="middle">I/O or Event</text>
+                    
+                    <!-- TERMINATED State -->
+                    <circle cx="760" cy="225" r="70" fill="#8B5CF6" stroke="#6d28d9" stroke-width="3" class="state-circle">
+                        <animate attributeName="r" values="70;73;70" dur="2s" repeatCount="indefinite" begin="0.9s"/>
+                    </circle>
+                    <text x="760" y="215" fill="white" font-size="18" font-weight="bold" text-anchor="middle">TERMINATED</text>
+                    <text x="760" y="235" fill="white" font-size="13" text-anchor="middle">Completed</text>
+                    
+                    <!-- Arrows and Labels -->
+                    <!-- NEW to READY -->
+                    <path d="M 190 225 L 240 225" stroke="#1e293b" stroke-width="4" marker-end="url(#arrowhead)" class="transition-arrow"/>
+                    <text x="215" y="210" fill="#1e293b" font-size="14" font-weight="bold" text-anchor="middle">admit</text>
+                    
+                    <!-- READY to RUNNING -->
+                    <path d="M 380 225 L 455 225" stroke="#1e293b" stroke-width="4" marker-end="url(#arrowhead)" class="transition-arrow"/>
+                    <text x="417" y="210" fill="#1e293b" font-size="14" font-weight="bold" text-anchor="middle">dispatch</text>
+                    
+                    <!-- RUNNING to TERMINATED -->
+                    <path d="M 605 225 L 690 225" stroke="#1e293b" stroke-width="4" marker-end="url(#arrowhead)" class="transition-arrow"/>
+                    <text x="647" y="210" fill="#1e293b" font-size="14" font-weight="bold" text-anchor="middle">exit</text>
+                    
+                    <!-- RUNNING to WAITING -->
+                    <path d="M 555 150 L 555 145" stroke="#1e293b" stroke-width="4" marker-end="url(#arrowhead)" class="transition-arrow"/>
+                    <path d="M 555 150 L 555 135" stroke="#1e293b" stroke-width="4"/>
+                    <text x="610" y="145" fill="#1e293b" font-size="13" font-weight="600" text-anchor="start">I/O complete/</text>
+                    <text x="610" y="160" fill="#1e293b" font-size="13" font-weight="600" text-anchor="start">I/O request</text>
+                    
+                    <!-- WAITING to RUNNING -->
+                    <path d="M 505 150 L 505 145" stroke="#1e293b" stroke-width="4" marker-end="url(#arrowhead)" class="transition-arrow"/>
+                    <path d="M 505 150 L 505 135" stroke="#1e293b" stroke-width="4"/>
+                    
+                    <!-- RUNNING back to READY (preempt) -->
+                    <path d="M 510 300 Q 400 350 320 295" stroke="#1e293b" stroke-width="4" marker-end="url(#arrowhead)" class="transition-arrow" stroke-dasharray="5,5"/>
+                    <text x="410" y="360" fill="#1e293b" font-size="13" font-weight="600" text-anchor="middle">preempt / timeout</text>
+                </svg>
+
+                <!-- Detailed Explanation Cards -->
+                <div class="explanation-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem;">
+                    <div class="explanation-card" style="background: linear-gradient(135deg, rgba(65, 105, 225, 0.1) 0%, rgba(65, 105, 225, 0.05) 100%); border-left: 4px solid #4169E1;">
+                        <h4 style="color: #4169E1; margin-bottom: 0.5rem;">① NEW State</h4>
+                        <p style="font-size: 0.95rem; color: var(--text-dark);"><strong>What happens:</strong> Process is just created, memory is being allocated.</p>
+                        <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem;"><em>Example:</em> When you press Emergency Service button.</p>
+                    </div>
+                    
+                    <div class="explanation-card" style="background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%); border-left: 4px solid #22C55E;">
+                        <h4 style="color: #22C55E; margin-bottom: 0.5rem;">② READY State</h4>
+                        <p style="font-size: 0.95rem; color: var(--text-dark);"><strong>What happens:</strong> Process is ready, waiting for CPU time. It's in Ready Queue.</p>
+                        <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem;"><em>Example:</em> Traffic System waiting for CPU.</p>
+                    </div>
+                    
+                    <div class="explanation-card" style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(239, 68, 68, 0.05) 100%); border-left: 4px solid #EF4444;">
+                        <h4 style="color: #EF4444; margin-bottom: 0.5rem;">③ RUNNING State</h4>
+                        <p style="font-size: 0.95rem; color: var(--text-dark);"><strong>What happens:</strong> Process is executing on CPU. Active work is happening.</p>
+                        <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem;"><em>Example:</em> Security System scanning cameras.</p>
+                    </div>
+                    
+                    <div class="explanation-card" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%); border-left: 4px solid #F59E0B;">
+                        <h4 style="color: #F59E0B; margin-bottom: 0.5rem;">④ WAITING State</h4>
+                        <p style="font-size: 0.95rem; color: var(--text-dark);"><strong>What happens:</strong> Process is waiting for I/O operation (disk, network, etc).</p>
+                        <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem;"><em>Example:</em> Utility system loading data from database.</p>
+                    </div>
+                    
+                    <div class="explanation-card" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%); border-left: 4px solid #8B5CF6;">
+                        <h4 style="color: #8B5CF6; margin-bottom: 0.5rem;">⑤ TERMINATED State</h4>
+                        <p style="font-size: 0.95rem; color: var(--text-dark);"><strong>What happens:</strong> Process completed its work, memory is freed.</p>
+                        <p style="font-size: 0.9rem; color: var(--text-light); margin-top: 0.5rem;"><em>Example:</em> Transport service finished its task.</p>
+                    </div>
+                </div>
+
+                <!-- Key Transitions Box -->
+                <div class="key-transitions-box" style="margin-top: 2rem; padding: 2rem; background: linear-gradient(135deg, rgba(96, 165, 250, 0.1) 0%, rgba(167, 139, 250, 0.1) 100%); border-radius: 15px; border: 2px solid rgba(96, 165, 250, 0.3);">
+                    <h4 style="text-align: center; color: #2563eb; margin-bottom: 1.5rem; font-size: 1.3rem;">🔀 Important Transitions (State Changes)</h4>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
+                        <div style="padding: 1rem; background: white; border-radius: 10px;">
+                            <strong style="color: #2563eb;">1. admit:</strong> NEW → READY<br>
+                            <span style="font-size: 0.9rem; color: var(--text-light);">Process is loaded into memory</span>
+                        </div>
+                        <div style="padding: 1rem; background: white; border-radius: 10px;">
+                            <strong style="color: #2563eb;">2. dispatch:</strong> READY → RUNNING<br>
+                            <span style="font-size: 0.9rem; color: var(--text-light);">Scheduler allocates CPU</span>
+                        </div>
+                        <div style="padding: 1rem; background: white; border-radius: 10px;">
+                            <strong style="color: #2563eb;">3. I/O request:</strong> RUNNING → WAITING<br>
+                            <span style="font-size: 0.9rem; color: var(--text-light);">Input/Output operation needed</span>
+                        </div>
+                        <div style="padding: 1rem; background: white; border-radius: 10px;">
+                            <strong style="color: #2563eb;">4. I/O complete:</strong> WAITING → READY<br>
+                            <span style="font-size: 0.9rem; color: var(--text-light);">I/O done, back to queue</span>
+                        </div>
+                        <div style="padding: 1rem; background: white; border-radius: 10px;">
+                            <strong style="color: #2563eb;">5. preempt/timeout:</strong> RUNNING → READY<br>
+                            <span style="font-size: 0.9rem; color: var(--text-light);">Time slice ended or higher priority</span>
+                        </div>
+                        <div style="padding: 1rem; background: white; border-radius: 10px;">
+                            <strong style="color: #2563eb;">6. exit:</strong> RUNNING → TERMINATED<br>
+                            <span style="font-size: 0.9rem; color: var(--text-light);">Process completed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Demo Section -->
+    <section id="demo" class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">🎮 Interactive Process Simulation</h2>
+            <div class="demo-container" data-aos="fade-up" data-aos-delay="200">
+                <div class="demo-controls">
+                    <h3>City Services (Processes)</h3>
+                    <div class="service-buttons">
+                        <button class="service-btn" onclick="startProcess('traffic', 2)">
+                            🚦 Traffic System <span class="priority">Priority: 2</span>
+                        </button>
+                        <button class="service-btn emergency" onclick="startProcess('emergency', 0)">
+                            🚨 Emergency Service <span class="priority">Priority: 0 (Highest)</span>
+                        </button>
+                        <button class="service-btn" onclick="startProcess('utility', 3)">
+                            💡 Utility Management <span class="priority">Priority: 3</span>
+                        </button>
+                        <button class="service-btn" onclick="startProcess('transport', 2)">
+                            🚍 Public Transport <span class="priority">Priority: 2</span>
+                        </button>
+                        <button class="service-btn" onclick="startProcess('security', 1)">
+                            🔒 Security System <span class="priority">Priority: 1</span>
+                        </button>
+                    </div>
+                    <div class="control-buttons">
+                        <button class="ctrl-btn" onclick="pauseScheduler()">⏸️ Pause</button>
+                        <button class="ctrl-btn" onclick="resumeScheduler()">▶️ Resume</button>
+                        <button class="ctrl-btn" onclick="clearAll()">🗑️ Clear All</button>
+                    </div>
+                </div>
+
+                <div class="demo-visualization">
+                    <div class="cpu-section">
+                        <h3>🖥️ CPU Scheduler (Priority-Based Preemptive)</h3>
+                        <div id="cpuQueue" class="queue">
+                            <div class="queue-placeholder">No processes running...</div>
+                        </div>
+                        <div class="cpu-stats">
+                            <div class="stat">
+                                <span>Active Processes:</span>
+                                <strong id="activeCount">0</strong>
+                            </div>
+                            <div class="stat">
+                                <span>In Queue:</span>
+                                <strong id="waitingCount">0</strong>
+                            </div>
+                            <div class="stat">
+                                <span>Context Switches:</span>
+                                <strong id="switchCount">0</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="threads-section">
+                        <h3>🧵 Thread Execution</h3>
+                        <div id="threadContainer" class="thread-container">
+                            <div class="thread-placeholder">No threads active...</div>
+                        </div>
+                    </div>
+
+                    <div class="memory-section">
+                        <h3>💾 Memory Allocation</h3>
+                        <div id="memoryBar" class="memory-bar">
+                            <div class="memory-used" style="width: 0%"></div>
+                        </div>
+                        <div class="memory-info">
+                            <span>Used: <strong id="memoryUsed">0</strong> MB</span>
+                            <span>Available: <strong id="memoryAvailable">1024</strong> MB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="process-log">
+                <h3>📋 System Log</h3>
+                <div id="logContainer" class="log-container">
+                    <div class="log-entry">System initialized. Ready to schedule processes...</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLO Mapping Section -->
+    <section id="clo-mapping" class="section gray-bg">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">📚 Course Learning Outcomes (CLOs) Mapping</h2>
+            
+            <div class="clo-grid">
+                <div class="clo-card tilt-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="clo-header">
+                        <span class="clo-badge">CLO-1 (C2)</span>
+                        <span class="status-badge fulfilled">✅ Fulfilled</span>
+                    </div>
+                    <h3>Explain Fundamental OS Concepts</h3>
+                    <ul>
+                        <li>Process and thread concepts explained through city services</li>
+                        <li>Scheduling algorithms demonstrated visually</li>
+                        <li>System architecture clearly documented</li>
+                        <li>OS operations illustrated with real-time examples</li>
+                    </ul>
+                </div>
+
+                <div class="clo-card">
+                    <div class="clo-header">
+                        <span class="clo-badge">CLO-2 (C3)</span>
+                        <span class="status-badge fulfilled">✅ Fulfilled</span>
+                    </div>
+                    <h3>Apply Core OS Concepts</h3>
+                    <ul>
+                        <li>Process management applied to city service lifecycle</li>
+                        <li>CPU scheduling with priority and round-robin</li>
+                        <li>Inter-process communication between services</li>
+                        <li>Synchronization mechanisms implemented</li>
+                    </ul>
+                </div>
+
+                <div class="clo-card">
+                    <div class="clo-header">
+                        <span class="clo-badge">CLO-3 (C4)</span>
+                        <span class="status-badge fulfilled">✅ Fulfilled</span>
+                    </div>
+                    <h3>Analyze Memory & Disk Scheduling</h3>
+                    <ul>
+                        <li>Memory allocation strategies for services</li>
+                        <li>Virtual memory for large-scale city data</li>
+                        <li>Disk scheduling for database operations (FCFS, SCAN)</li>
+                        <li>Performance analysis and trade-offs</li>
+                    </ul>
+                </div>
+
+                <div class="clo-card">
+                    <div class="clo-header">
+                        <span class="clo-badge">CLO-4 (A3)</span>
+                        <span class="status-badge fulfilled">✅ Fulfilled</span>
+                    </div>
+                    <h3>Demonstrate Project Completion</h3>
+                    <ul>
+                        <li>Comprehensive report with design methodology</li>
+                        <li>Block diagrams and conceptual models</li>
+                        <li>Interactive presentation and demonstration</li>
+                        <li>Viva-voce preparation with deep understanding</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="cep-section" data-aos="fade-up" data-aos-delay="500">
+                <h3>Complex Engineering Problem (CEP) Characteristics</h3>
+                <div class="cep-grid">
+                    <div class="cep-item">
+                        <span class="cep-code">WP1</span>
+                        <span class="cep-desc">Depth of Knowledge (WK3-WK6)</span>
+                        <span class="check">✓</span>
+                    </div>
+                    <div class="cep-item">
+                        <span class="cep-code">WP2</span>
+                        <span class="cep-desc">Conflicting Technical Requirements</span>
+                        <span class="check">✓</span>
+                    </div>
+                    <div class="cep-item">
+                        <span class="cep-code">WP3</span>
+                        <span class="cep-desc">Creative Modeling & Analysis</span>
+                        <span class="check">✓</span>
+                    </div>
+                    <div class="cep-item">
+                        <span class="cep-code">WP4</span>
+                        <span class="cep-desc">Infrequently Encountered Issues</span>
+                        <span class="check">✓</span>
+                    </div>
+                    <div class="cep-item">
+                        <span class="cep-code">WP5</span>
+                        <span class="cep-desc">Not Covered by Existing Standards</span>
+                        <span class="check">✓</span>
+                    </div>
+                    <div class="cep-item">
+                        <span class="cep-code">WP6</span>
+                        <span class="cep-desc">Stakeholder Diversity</span>
+                        <span class="check">✓</span>
+                    </div>
+                    <div class="cep-item">
+                        <span class="cep-code">WP7</span>
+                        <span class="cep-desc">Subsystem Interdependence</span>
+                        <span class="check">✓</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scheduling Visualization -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Scheduling Algorithm Visualization</h2>
+            <div class="scheduling-visual" data-aos="fade-up" data-aos-delay="200">
+                <svg width="100%" height="500" viewBox="0 0 1000 500">
+                    <!-- Timeline -->
+                    <line x1="50" y1="400" x2="950" y2="400" stroke="#1e293b" stroke-width="3"/>
+                    
+                    <!-- Time markers -->
+                    <text x="50" y="430" fill="#64748b" font-size="12" text-anchor="middle">0s</text>
+                    <text x="230" y="430" fill="#64748b" font-size="12" text-anchor="middle">2s</text>
+                    <text x="410" y="430" fill="#64748b" font-size="12" text-anchor="middle">4s</text>
+                    <text x="590" y="430" fill="#64748b" font-size="12" text-anchor="middle">6s</text>
+                    <text x="770" y="430" fill="#64748b" font-size="12" text-anchor="middle">8s</text>
+                    <text x="950" y="430" fill="#64748b" font-size="12" text-anchor="middle">10s</text>
+                    
+                    <!-- Process Execution Blocks -->
+                    <rect x="50" y="300" width="180" height="80" fill="#ef4444" rx="8" class="gantt-block" style="animation-delay: 0s;"/>
+                    <text x="140" y="335" fill="white" font-size="14" font-weight="bold" text-anchor="middle">Emergency</text>
+                    <text x="140" y="355" fill="white" font-size="11" text-anchor="middle">Priority: 0</text>
+                    
+                    <rect x="230" y="300" width="90" height="80" fill="#8b5cf6" rx="8" class="gantt-block" style="animation-delay: 0.3s;"/>
+                    <text x="275" y="335" fill="white" font-size="14" font-weight="bold" text-anchor="middle">Security</text>
+                    <text x="275" y="355" fill="white" font-size="11" text-anchor="middle">Priority: 1</text>
+                    
+                    <rect x="320" y="300" width="90" height="80" fill="#3b82f6" rx="8" class="gantt-block" style="animation-delay: 0.6s;"/>
+                    <text x="365" y="335" fill="white" font-size="14" font-weight="bold" text-anchor="middle">Traffic</text>
+                    <text x="365" y="355" fill="white" font-size="11" text-anchor="middle">Priority: 2</text>
+                    
+                    <rect x="410" y="300" width="90" height="80" fill="#10b981" rx="8" class="gantt-block" style="animation-delay: 0.9s;"/>
+                    <text x="455" y="335" fill="white" font-size="14" font-weight="bold" text-anchor="middle">Transport</text>
+                    <text x="455" y="355" fill="white" font-size="11" text-anchor="middle">Priority: 2</text>
+                    
+                    <rect x="500" y="300" width="90" height="80" fill="#3b82f6" rx="8" class="gantt-block" style="animation-delay: 1.2s;"/>
+                    <text x="545" y="335" fill="white" font-size="14" font-weight="bold" text-anchor="middle">Traffic</text>
+                    <text x="545" y="355" fill="white" font-size="11" text-anchor="middle">Priority: 2</text>
+                    
+                    <rect x="590" y="300" width="90" height="80" fill="#f59e0b" rx="8" class="gantt-block" style="animation-delay: 1.5s;"/>
+                    <text x="635" y="335" fill="white" font-size="14" font-weight="bold" text-anchor="middle">Utility</text>
+                    <text x="635" y="355" fill="white" font-size="11" text-anchor="middle">Priority: 3</text>
+                    
+                    <rect x="680" y="300" width="90" height="80" fill="#10b981" rx="8" class="gantt-block" style="animation-delay: 1.8s;"/>
+                    <text x="725" y="335" fill="white" font-size="14" font-weight="bold" text-anchor="middle">Transport</text>
+                    <text x="725" y="355" fill="white" font-size="11" text-anchor="middle">Priority: 2</text>
+                    
+                    <!-- Title -->
+                    <text x="500" y="40" fill="#1e293b" font-size="22" font-weight="bold" text-anchor="middle">Gantt Chart: Priority-Based Preemptive Scheduling</text>
+                    
+                    <!-- Legend -->
+                    <rect x="50" y="150" width="20" height="20" fill="#ef4444" rx="3"/>
+                    <text x="80" y="165" fill="#1e293b" font-size="13">Priority 0 (Emergency - Preemptive)</text>
+                    
+                    <rect x="350" y="150" width="20" height="20" fill="#8b5cf6" rx="3"/>
+                    <text x="380" y="165" fill="#1e293b" font-size="13">Priority 1 (Security)</text>
+                    
+                    <rect x="600" y="150" width="20" height="20" fill="#3b82f6" rx="3"/>
+                    <text x="630" y="165" fill="#1e293b" font-size="13">Priority 2 (Traffic/Transport)</text>
+                    
+                    <rect x="50" y="190" width="20" height="20" fill="#f59e0b" rx="3"/>
+                    <text x="80" y="205" fill="#1e293b" font-size="13">Priority 3 (Utility)</text>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="section gray-bg">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Key Features & Innovations</h2>
+            <div class="features-grid">
+                <div class="feature-card tilt-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Real-Time Processing</h3>
+                    <p>Emergency services get immediate CPU time through priority-based preemptive scheduling.</p>
+                </div>
+                <div class="feature-card tilt-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Dynamic Load Balancing</h3>
+                    <p>Intelligent resource distribution across multiple city services for optimal performance.</p>
+                </div>
+                <div class="feature-card tilt-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Deadlock Prevention</h3>
+                    <p>Banker's algorithm implementation ensures system never enters deadlock state.</p>
+                </div>
+                <div class="feature-card tilt-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">📊</div>
+                    <h3>Performance Analytics</h3>
+                    <p>Real-time monitoring of CPU utilization, memory usage, and service response times.</p>
+                </div>
+                <div class="feature-card tilt-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">🔗</div>
+                    <h3>IPC Mechanisms</h3>
+                    <p>Efficient inter-service communication using message queues and shared memory.</p>
+                </div>
+                <div class="feature-card tilt-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">📈</div>
+                    <h3>Scalable Architecture</h3>
+                    <p>Modular design allows easy addition of new city services without system redesign.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Members Section -->
+    <section class="section gray-bg">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">👥 Team CityNEXUS</h2>
+            <p style="text-align: center; font-size: 1.3rem; margin-bottom: 10px; opacity: 0.95; font-weight: 600; color: #fbbf24;" data-aos="fade-up" data-aos-delay="100">Group Members</p>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 40px; opacity: 0.85;" data-aos="fade-up" data-aos-delay="150">CEP-3: Operating Systems Course Project</p>
+            <div class="grid-3" style="margin-top: 40px;">
+                <div class="card tilt-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="icon">👩‍💻</div>
+                    <h3>Hafsa Ashraf</h3>
+                    <p style="color: #fbbf24; font-weight: 600; margin-bottom: 10px;">Team Lead & Core Developer</p>
+                    <p style="font-size: 1.1rem;">System Architecture Design, Process Management Implementation, Frontend Development</p>
+                </div>
+                <div class="card tilt-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="icon">👩‍💻</div>
+                    <h3>Hafsa Zulfiqar</h3>
+                    <p style="color: #fbbf24; font-weight: 600; margin-bottom: 10px;">Algorithm Specialist</p>
+                    <p style="font-size: 1.1rem;">CPU Scheduling Algorithm, Thread Management, Performance Analysis & Testing</p>
+                </div>
+                <div class="card tilt-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="icon">👨‍💻</div>
+                    <h3>Hassam Arif</h3>
+                    <p style="color: #fbbf24; font-weight: 600; margin-bottom: 10px;">Integration Engineer</p>
+                    <p style="font-size: 1.1rem;">System Integration, Live Demo Development, Documentation & Presentation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>CityNexus Project</h4>
+                    <p>CEP-3: Operating Systems</p>
+                    <p>Complex Engineering Problem</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Documentation</h4>
+                    <a href="report.html">Full Report</a>
+                    <a href="#clo-mapping">CLO Mapping</a>
+                    <a href="#architecture">Architecture</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#home">Home</a>
+                    <a href="#demo">Live Demo</a>
+                    <a href="#architecture">System Design</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 CityNexus Smart City OS. Built with ❤️ for OS Course.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+
+        // Initialize Particles.js
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: ['#2563eb', '#7c3aed', '#f59e0b']
+                },
+                shape: {
+                    type: 'circle',
+                    stroke: {
+                        width: 0,
+                        color: '#000000'
+                    }
+                },
+                opacity: {
+                    value: 0.3,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 2,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#2563eb',
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'grab'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 140,
+                        line_linked: {
+                            opacity: 0.5
+                        }
+                    },
+                    push: {
+                        particles_nb: 4
+                    }
+                }
+            },
+            retina_detect: true
+        });
+
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const scrollProgress = document.querySelector('.scroll-progress');
+            const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = window.scrollY;
+            const progress = (scrolled / scrollable) * 100;
+            scrollProgress.style.width = progress + '%';
+        });
+
+        // 3D Tilt Effect for Cards
+        const tiltCards = document.querySelectorAll('.tilt-card');
+        
+        tiltCards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            });
+        });
+    </script>
+</body>
+</html>

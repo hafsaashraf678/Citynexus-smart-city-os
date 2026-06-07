@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Report - CityNexus Smart City OS</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .report-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 2rem 40px;
+            background: white;
+        }
+        
+        .report-header {
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 3px solid var(--primary-color);
+            margin-bottom: 3rem;
+        }
+        
+        .report-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .report-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+        
+        .report-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-dark);
+        }
+        
+        .report-section {
+            margin-bottom: 3rem;
+        }
+        
+        .report-section h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        .report-section h3 {
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .report-section p {
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        .report-section ul, .report-section ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .report-section li {
+            line-height: 1.8;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight-box {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-color);
+            margin: 1.5rem 0;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 1.5rem 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+        
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+        
+        th {
+            background: var(--primary-color);
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background: var(--light-bg);
+        }
+        
+        .back-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: var(--secondary-color);
+            transform: translateX(-5px);
+        }
+        
+        .diagram-placeholder {
+            background: var(--gray-bg);
+            padding: 3rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 1.5rem 0;
+            border: 2px dashed var(--border-color);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">🏙️ CityNexus</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#architecture">Architecture</a></li>
+                <li><a href="index.html#demo">Live Demo</a></li>
+                <li><a href="index.html#clo-mapping">CLO Mapping</a></li>
+                <li><a href="report.html">Report</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="report-container">
+        <a href="index.html" class="back-button">← Back to Home</a>
+        
+        <div class="report-header">
+            <h1 class="report-title">CityNexus Smart City OS</h1>
+            <p class="report-subtitle">Process and Thread Management Framework for Modern Smart Cities</p>
+            <div class="report-meta">
+                <div class="meta-item">
+                    <strong>Project:</strong> CEP-3
+                </div>
+                <div class="meta-item">
+                    <strong>Course:</strong> Operating Systems
+                </div>
+                <div class="meta-item">
+                    <strong>Date:</strong> December 2025
+                </div>
+            </div>
+        </div>
+
+        <!-- Executive Summary -->
+        <div class="report-section">
+            <h2>1. Executive Summary</h2>
+            <p>
+                CityNexus is an innovative Smart City Operating System that applies core OS principles to urban management. 
+                By treating city services as processes and their sub-tasks as threads, we create an efficient, scalable, 
+                and intelligent framework for managing complex urban infrastructure. This project demonstrates the practical 
+                application of process scheduling, thread management, memory allocation, and inter-process communication 
+                in a real-world context.
+            </p>
+            <div class="highlight-box">
+                <strong>Key Innovation:</strong> Bridging traditional OS concepts with modern smart city requirements, 
+                enabling real-time resource allocation, priority-based emergency response, and seamless inter-service coordination.
+            </div>
+        </div>
+
+        <!-- Problem Statement -->
+        <div class="report-section">
+            <h2>2. Problem Statement</h2>
+            <p>
+                Modern cities face increasing complexity in managing multiple interconnected services simultaneously. 
+                Traditional city management systems lack:
+            </p>
+            <ul>
+                <li>Efficient resource allocation across competing services</li>
+                <li>Real-time priority adjustment for emergencies</li>
+                <li>Systematic inter-service communication mechanisms</li>
+                <li>Scalable architecture for adding new services</li>
+                <li>Performance monitoring and optimization capabilities</li>
+            </ul>
+            <p>
+                This project addresses these challenges by designing an OS-level framework that treats urban services 
+                as computational processes, enabling efficient scheduling, resource management, and coordination.
+            </p>
+        </div>
+
+        <!-- System Architecture -->
+        <div class="report-section">
+            <h2>3. System Architecture</h2>
+            
+            <h3>3.1 Layered Architecture</h3>
+            <p>CityNexus follows a five-layer architecture model:</p>
+            
+            <ol>
+                <li><strong>Application Layer:</strong> City services (Traffic, Emergency, Utilities, Transport, Security)</li>
+                <li><strong>Process Management Layer:</strong> Process scheduler, priority manager, resource allocator</li>
+                <li><strong>Thread Management Layer:</strong> Thread scheduler, synchronization primitives, deadlock prevention</li>
+                <li><strong>Resource Management Layer:</strong> Memory manager, I/O scheduler, disk scheduler</li>
+                <li><strong>Hardware Layer:</strong> CPU cores, memory, storage, network devices, IoT sensors</li>
+            </ol>
+
+            <h3>3.2 Service as Process Model</h3>
+            <p>Each city service is modeled as an independent process with:</p>
+            <ul>
+                <li>Unique Process ID (PID)</li>
+                <li>Priority level (0 = highest for emergencies, 3 = lowest)</li>
+                <li>Memory allocation requirement</li>
+                <li>Multiple threads for sub-tasks</li>
+                <li>State transitions (New → Ready → Running → Waiting → Terminated)</li>
+            </ul>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Service</th>
+                            <th>Priority</th>
+                            <th>Memory (MB)</th>
+                            <th>Threads</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🚨 Emergency Service</td>
+                            <td>0 (Highest)</td>
+                            <td>256</td>
+                            <td>3 (Dispatcher, Routing, Coordination)</td>
+                        </tr>
+                        <tr>
+                            <td>🔒 Security System</td>
+                            <td>1</td>
+                            <td>200</td>
+                            <td>3 (Monitor, Detection, Alert)</td>
+                        </tr>
+                        <tr>
+                            <td>🚦 Traffic Management</td>
+                            <td>2</td>
+                            <td>128</td>
+                            <td>3 (Signal Control, Detection, Optimization)</td>
+                        </tr>
+                        <tr>
+                            <td>🚍 Public Transport</td>
+                            <td>2</td>
+                            <td>150</td>
+                            <td>3 (Tracking, Schedule, Info)</td>
+                        </tr>
+                        <tr>
+                            <td>💡 Utility Management</td>
+                            <td>3</td>
+                            <td>96</td>
+                            <td>3 (Power, Water, Waste)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Process Management -->
+        <div class="report-section">
+            <h2>4. Process Management</h2>
+            
+            <h3>4.1 Scheduling Algorithm</h3>
+            <p>
+                CityNexus implements a <strong>hybrid scheduling algorithm</strong> combining:
+            </p>
+            <ul>
+                <li><strong>Priority-based Preemptive Scheduling:</strong> Emergency services can preempt lower-priority processes</li>
+                <li><strong>Round Robin:</strong> Equal time quantum for same-priority processes to prevent starvation</li>
+                <li><strong>Aging mechanism:</strong> Gradually increases priority of waiting processes</li>
+            </ul>
+
+            <h3>4.2 Process State Diagram</h3>
+            <svg width="100%" height="450" viewBox="0 0 900 450" style="background: #f8fafc; border-radius: 10px; padding: 20px;">
+                <!-- States -->
+                <circle cx="150" cy="225" r="60" fill="#3b82f6" class="state-circle"/>
+                <text x="150" y="220" fill="white" font-size="16" font-weight="bold" text-anchor="middle">NEW</text>
+                <text x="150" y="240" fill="white" font-size="12" text-anchor="middle">Process</text>
+                <text x="150" y="255" fill="white" font-size="12" text-anchor="middle">Created</text>
+                
+                <circle cx="350" cy="225" r="60" fill="#10b981" class="state-circle"/>
+                <text x="350" y="220" fill="white" font-size="16" font-weight="bold" text-anchor="middle">READY</text>
+                <text x="350" y="240" fill="white" font-size="12" text-anchor="middle">Waiting</text>
+                <text x="350" y="255" fill="white" font-size="12" text-anchor="middle">for CPU</text>
+                
+                <circle cx="550" cy="225" r="60" fill="#ef4444" class="state-circle"/>
+                <text x="550" y="220" fill="white" font-size="16" font-weight="bold" text-anchor="middle">RUNNING</text>
+                <text x="550" y="240" fill="white" font-size="12" text-anchor="middle">Executing</text>
+                <text x="550" y="255" fill="white" font-size="12" text-anchor="middle">on CPU</text>
+                
+                <circle cx="750" cy="225" r="60" fill="#6366f1" class="state-circle"/>
+                <text x="750" y="220" fill="white" font-size="16" font-weight="bold" text-anchor="middle">TERMINATED</text>
+                <text x="750" y="240" fill="white" font-size="12" text-anchor="middle">Execution</text>
+                <text x="750" y="255" fill="white" font-size="12" text-anchor="middle">Complete</text>
+                
+                <circle cx="550" cy="80" r="60" fill="#f59e0b" class="state-circle"/>
+                <text x="550" y="75" fill="white" font-size="16" font-weight="bold" text-anchor="middle">WAITING</text>
+                <text x="550" y="90" fill="white" font-size="12" text-anchor="middle">I/O or</text>
+                <text x="550" y="105" fill="white" font-size="12" text-anchor="middle">Event Wait</text>
+                
+                <!-- Transitions with arrows -->
+                <defs>
+                    <marker id="arrowReport" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                        <polygon points="0 0, 10 5, 0 10" fill="#1e293b"/>
+                    </marker>
+                </defs>
+                
+                <path d="M 210 225 L 290 225" stroke="#1e293b" stroke-width="3" marker-end="url(#arrowReport)"/>
+                <text x="250" y="215" fill="#1e293b" font-size="13" font-weight="600">admit</text>
+                
+                <path d="M 410 225 L 490 225" stroke="#1e293b" stroke-width="3" marker-end="url(#arrowReport)"/>
+                <text x="445" y="215" fill="#1e293b" font-size="13" font-weight="600">dispatch</text>
+                
+                <path d="M 610 225 L 690 225" stroke="#1e293b" stroke-width="3" marker-end="url(#arrowReport)"/>
+                <text x="650" y="215" fill="#1e293b" font-size="13" font-weight="600">exit</text>
+                
+                <path d="M 530 140 L 530 200" stroke="#1e293b" stroke-width="3" marker-end="url(#arrowReport)"/>
+                <text x="475" y="170" fill="#1e293b" font-size="12" font-weight="600">I/O complete</text>
+                
+                <path d="M 570 140 L 570 200" stroke="#1e293b" stroke-width="3" marker-end="url(#arrowReport)"/>
+                <text x="585" y="170" fill="#1e293b" font-size="12" font-weight="600">I/O request</text>
+                
+                <path d="M 540 265 Q 440 320 360 265" stroke="#1e293b" stroke-width="3" marker-end="url(#arrowReport)"/>
+                <text x="440" y="330" fill="#1e293b" font-size="12" font-weight="600">preempt / timeout</text>
+                
+                <!-- Emergency Override Path -->
+                <path d="M 500 260 Q 400 380 310 260" stroke="#ef4444" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrowEmergency)"/>
+                <text x="380" y="395" fill="#ef4444" font-size="12" font-weight="bold">⚠️ Emergency Preemption</text>
+                
+                <defs>
+                    <marker id="arrowEmergency" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                        <polygon points="0 0, 10 5, 0 10" fill="#ef4444"/>
+                    </marker>
+                </defs>
+            </svg>
+
+            <h3>4.3 Context Switching</h3>
+            <p>
+                Context switches occur when:
+            </p>
+            <ul>
+                <li>A higher-priority process arrives (preemption)</li>
+                <li>Time quantum expires for current process</li>
+                <li>Process enters waiting state (I/O operation)</li>
+                <li>Process terminates</li>
+            </ul>
+            <p>
+                The system tracks context switches for performance analysis and optimization.
+            </p>
+        </div>
+
+        <!-- Thread Management -->
+        <div class="report-section">
+            <h2>5. Thread Management</h2>
+            
+            <h3>5.1 Multi-threading Model</h3>
+            <p>
+                Each service process contains multiple threads executing concurrently:
+            </p>
+            <ul>
+                <li><strong>Traffic System:</strong> Signal Control, Vehicle Detection, Route Optimization</li>
+                <li><strong>Emergency Service:</strong> 911 Dispatcher, Ambulance Routing, Hospital Coordination</li>
+                <li><strong>Security System:</strong> Camera Monitor, Threat Detection, Alert System</li>
+            </ul>
+
+            <h3>5.2 Synchronization Mechanisms</h3>
+            <p>To prevent race conditions and ensure data consistency:</p>
+            <ul>
+                <li><strong>Mutex Locks:</strong> Protect shared resources (traffic signals, databases)</li>
+                <li><strong>Semaphores:</strong> Control access to limited resources (emergency vehicles)</li>
+                <li><strong>Message Queues:</strong> Inter-thread communication</li>
+            </ul>
+
+            <h3>5.3 Deadlock Prevention</h3>
+            <p>
+                Implementation of Banker's Algorithm to ensure system never enters deadlock state:
+            </p>
+            <ul>
+                <li>Resource allocation graphs maintained</li>
+                <li>Safe state verification before allocation</li>
+                <li>Circular wait prevention through resource ordering</li>
+            </ul>
+        </div>
+
+        <!-- Memory Management -->
+        <div class="report-section">
+            <h2>6. Memory Management</h2>
+            
+            <h3>6.1 Memory Allocation Strategy</h3>
+            <p>
+                CityNexus implements dynamic memory allocation with:
+            </p>
+            <ul>
+                <li><strong>Total System Memory:</strong> 1024 MB</li>
+                <li><strong>Allocation Policy:</strong> First-fit algorithm</li>
+                <li><strong>Protection:</strong> Each process has isolated memory space</li>
+                <li><strong>Monitoring:</strong> Real-time tracking of memory usage</li>
+            </ul>
+
+            <h3>6.2 Virtual Memory</h3>
+            <p>For large-scale data handling:</p>
+            <ul>
+                <li>Paging mechanism for efficient memory utilization</li>
+                <li>LRU (Least Recently Used) page replacement</li>
+                <li>Demand paging for city databases and sensor data</li>
+            </ul>
+
+            <h3>6.3 Memory Management Analysis</h3>
+            <div class="highlight-box">
+                <p><strong>CLO-3 Fulfillment:</strong> Memory allocation strategies compared:</p>
+                <ul style="margin-top: 0.5rem;">
+                    <li><strong>First-fit:</strong> Fast allocation, moderate fragmentation</li>
+                    <li><strong>Best-fit:</strong> Minimal fragmentation, slower allocation</li>
+                    <li><strong>Worst-fit:</strong> Large holes remain, useful for future allocations</li>
+                </ul>
+                <p style="margin-top: 1rem;">
+                    <strong>Chosen Strategy:</strong> First-fit for real-time performance requirements
+                </p>
+            </div>
+        </div>
+
+        <!-- Disk Scheduling -->
+        <div class="report-section">
+            <h2>7. Disk Scheduling Algorithms</h2>
+            
+            <h3>7.1 Application in CityNexus</h3>
+            <p>City services require frequent database access for:</p>
+            <ul>
+                <li>Traffic patterns and historical data</li>
+                <li>Emergency response records</li>
+                <li>Utility consumption logs</li>
+                <li>Security camera footage</li>
+                <li>Public transport schedules</li>
+            </ul>
+
+            <h3>7.2 Algorithm Comparison</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Algorithm</th>
+                            <th>Seek Time</th>
+                            <th>Starvation</th>
+                            <th>Fairness</th>
+                            <th>Best Use Case</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>FCFS</td>
+                            <td>High</td>
+                            <td>No</td>
+                            <td>Excellent</td>
+                            <td>Low load scenarios</td>
+                        </tr>
+                        <tr>
+                            <td>SSTF</td>
+                            <td>Low</td>
+                            <td>Yes</td>
+                            <td>Poor</td>
+                            <td>Performance-critical</td>
+                        </tr>
+                        <tr>
+                            <td>SCAN</td>
+                            <td>Medium</td>
+                            <td>No</td>
+                            <td>Good</td>
+                            <td>Balanced workload</td>
+                        </tr>
+                        <tr>
+                            <td>C-SCAN</td>
+                            <td>Medium</td>
+                            <td>No</td>
+                            <td>Excellent</td>
+                            <td>Heavy load (chosen)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Disk Scheduling Visualization -->
+            <div style="margin-top: 2rem;">
+                <h4 style="text-align: center; margin-bottom: 1rem;">Disk Scheduling Visualization - C-SCAN Algorithm</h4>
+                <svg width="100%" height="350" viewBox="0 0 800 350" style="background: #f8fafc; border-radius: 10px; padding: 20px;">
+                    <!-- Disk track representation -->
+                    <line x1="100" y1="50" x2="100" y2="300" stroke="#cbd5e1" stroke-width="3"/>
+                    <text x="50" y="175" fill="#64748b" font-size="14" transform="rotate(-90 50 175)">Disk Tracks</text>
+                    
+                    <!-- Track numbers -->
+                    <text x="85" y="55" fill="#64748b" font-size="11" text-anchor="end">200</text>
+                    <text x="85" y="113" fill="#64748b" font-size="11" text-anchor="end">150</text>
+                    <text x="85" y="175" fill="#64748b" font-size="11" text-anchor="end">100</text>
+                    <text x="85" y="238" fill="#64748b" font-size="11" text-anchor="end">50</text>
+                    <text x="85" y="300" fill="#64748b" font-size="11" text-anchor="end">0</text>
+                    
+                    <!-- Request queue -->
+                    <circle cx="150" cy="175" r="8" fill="#ef4444"/>
+                    <text x="150" y="195" fill="#64748b" font-size="11" text-anchor="middle">Start:100</text>
+                    
+                    <circle cx="200" cy="100" r="8" fill="#3b82f6"/>
+                    <text x="200" y="120" fill="#64748b" font-size="11" text-anchor="middle">110</text>
+                    
+                    <circle cx="250" cy="138" r="8" fill="#3b82f6"/>
+                    <text x="250" y="158" fill="#64748b" font-size="11" text-anchor="middle">125</text>
+                    
+                    <circle cx="300" cy="88" r="8" fill="#3b82f6"/>
+                    <text x="300" y="108" fill="#64748b" font-size="11" text-anchor="middle">140</text>
+                    
+                    <circle cx="350" cy="63" r="8" fill="#3b82f6"/>
+                    <text x="350" y="83" fill="#64748b" font-size="11" text-anchor="middle">165</text>
+                    
+                    <circle cx="400" cy="50" r="8" fill="#10b981"/>
+                    <text x="400" y="40" fill="#64748b" font-size="11" text-anchor="middle">End:199</text>
+                    
+                    <!-- Path visualization -->
+                    <path d="M 150 175 L 200 100 L 250 138 L 300 88 L 350 63 L 400 50" 
+                          stroke="#8b5cf6" stroke-width="2" fill="none" 
+                          stroke-dasharray="5,3" marker-end="url(#diskArrow)"/>
+                    
+                    <!-- Return to start (circular) -->
+                    <path d="M 400 50 Q 500 50 500 300 Q 500 320 450 320 L 200 320" 
+                          stroke="#f59e0b" stroke-width="2" fill="none" 
+                          stroke-dasharray="3,3" marker-end="url(#returnArrow)"/>
+                    <text x="520" y="175" fill="#f59e0b" font-size="12" font-weight="600">Return to 0</text>
+                    
+                    <defs>
+                        <marker id="diskArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                            <polygon points="0 0, 8 4, 0 8" fill="#8b5cf6"/>
+                        </marker>
+                        <marker id="returnArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+                            <polygon points="0 0, 8 4, 0 8" fill="#f59e0b"/>
+                        </marker>
+                    </defs>
+                    
+                    <!-- Title -->
+                    <text x="400" y="25" fill="#1e293b" font-size="16" font-weight="bold" text-anchor="middle">C-SCAN: Unidirectional Sweep</text>
+                </svg>
+            </div>
+
+            <h3>7.3 Implementation Choice</h3>
+            <div class="highlight-box">
+                <p>
+                    <strong>Selected Algorithm: C-SCAN (Circular SCAN)</strong>
+                </p>
+                <p style="margin-top: 0.5rem;">
+                    <strong>Rationale:</strong> Provides uniform wait time for all services, prevents starvation, 
+                    and performs efficiently under high load - critical for smart city operations with continuous 
+                    database access from multiple services.
+                </p>
+            </div>
+        </div>
+
+        <!-- Inter-Process Communication -->
+        <div class="report-section">
+            <h2>8. Inter-Process Communication (IPC)</h2>
+            
+            <h3>8.1 Communication Mechanisms</h3>
+            <p>City services need to coordinate and share information:</p>
+            <ul>
+                <li><strong>Message Passing:</strong> Emergency alerts to all services</li>
+                <li><strong>Shared Memory:</strong> Real-time traffic data shared with transport system</li>
+                <li><strong>Pipes:</strong> Log data from services to monitoring system</li>
+                <li><strong>Sockets:</strong> Network communication with external systems</li>
+            </ul>
+
+            <h3>8.2 Example Scenario</h3>
+            <div class="highlight-box">
+                <p><strong>Emergency Response Coordination:</strong></p>
+                <ol style="margin-top: 0.5rem;">
+                    <li>Emergency service receives 911 call (highest priority)</li>
+                    <li>Sends message to Traffic system to clear route</li>
+                    <li>Traffic system updates signal timings via shared memory</li>
+                    <li>Security system receives notification via message queue</li>
+                    <li>All systems coordinate through IPC mechanisms</li>
+                </ol>
+            </div>
+            
+            <!-- IPC Diagram -->
+            <div style="margin-top: 2rem;">
+                <h4 style="text-align: center; margin-bottom: 1rem;">Inter-Process Communication Flow</h4>
+                <svg width="100%" height="400" viewBox="0 0 900 400" style="background: #f8fafc; border-radius: 10px; padding: 20px;">
+                    <!-- Processes -->
+                    <rect x="50" y="150" width="150" height="80" fill="#ef4444" rx="10"/>
+                    <text x="125" y="185" fill="white" font-size="15" font-weight="bold" text-anchor="middle">🚨 Emergency</text>
+                    <text x="125" y="205" fill="white" font-size="11" text-anchor="middle">Service</text>
+                    
+                    <rect x="375" y="50" width="150" height="80" fill="#3b82f6" rx="10"/>
+                    <text x="450" y="85" fill="white" font-size="15" font-weight="bold" text-anchor="middle">🚦 Traffic</text>
+                    <text x="450" y="105" fill="white" font-size="11" text-anchor="middle">Management</text>
+                    
+                    <rect x="375" y="250" width="150" height="80" fill="#8b5cf6" rx="10"/>
+                    <text x="450" y="285" fill="white" font-size="15" font-weight="bold" text-anchor="middle">🔒 Security</text>
+                    <text x="450" y="305" fill="white" font-size="11" text-anchor="middle">System</text>
+                    
+                    <rect x="700" y="150" width="150" height="80" fill="#10b981" rx="10"/>
+                    <text x="775" y="185" fill="white" font-size="15" font-weight="bold" text-anchor="middle">🚍 Transport</text>
+                    <text x="775" y="205" fill="white" font-size="11" text-anchor="middle">System</text>
+                    
+                    <!-- Communication arrows -->
+                    <defs>
+                        <marker id="ipcArrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                            <polygon points="0 0, 10 5, 0 10" fill="#1e293b"/>
+                        </marker>
+                    </defs>
+                    
+                    <path d="M 200 170 L 375 100" stroke="#1e293b" stroke-width="3" marker-end="url(#ipcArrow)"/>
+                    <text x="280" y="125" fill="#f59e0b" font-size="12" font-weight="600">Message Queue</text>
+                    
+                    <path d="M 200 210 L 375 280" stroke="#1e293b" stroke-width="3" marker-end="url(#ipcArrow)"/>
+                    <text x="270" y="265" fill="#f59e0b" font-size="12" font-weight="600">Alert Signal</text>
+                    
+                    <path d="M 525 90 L 700 180" stroke="#1e293b" stroke-width="3" marker-end="url(#ipcArrow)"/>
+                    <text x="600" y="125" fill="#f59e0b" font-size="12" font-weight="600">Shared Memory</text>
+                    
+                    <path d="M 525 290 L 700 200" stroke="#1e293b" stroke-width="3" marker-end="url(#ipcArrow)"/>
+                    <text x="600" y="265" fill="#f59e0b" font-size="12" font-weight="600">Pipe</text>
+                    
+                    <!-- Shared Memory Region -->
+                    <rect x="400" y="160" width="100" height="40" fill="none" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5,5" rx="5"/>
+                    <text x="450" y="185" fill="#f59e0b" font-size="11" font-weight="600" text-anchor="middle">Shared Data</text>
+                    
+                    <!-- Title -->
+                    <text x="450" y="30" fill="#1e293b" font-size="18" font-weight="bold" text-anchor="middle">IPC Mechanisms in CityNexus</text>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Performance Analysis -->
+        <div class="report-section">
+            <h2>9. Performance Metrics & Analysis</h2>
+            
+            <h3>9.1 Key Performance Indicators</h3>
+            <ul>
+                <li><strong>CPU Utilization:</strong> Percentage of time CPU is active</li>
+                <li><strong>Throughput:</strong> Number of processes completed per time unit</li>
+                <li><strong>Response Time:</strong> Time from request to first response (critical for emergencies)</li>
+                <li><strong>Turnaround Time:</strong> Total time from submission to completion</li>
+                <li><strong>Context Switches:</strong> Number of process switches (overhead indicator)</li>
+                <li><strong>Memory Utilization:</strong> Percentage of memory in use</li>
+            </ul>
+
+            <h3>9.2 Trade-off Analysis</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Requirement</th>
+                            <th>Solution</th>
+                            <th>Trade-off</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Fast emergency response</td>
+                            <td>Priority-based preemption</td>
+                            <td>May delay low-priority services</td>
+                        </tr>
+                        <tr>
+                            <td>Fair resource distribution</td>
+                            <td>Round-robin for same priority</td>
+                            <td>Slightly higher context switching overhead</td>
+                        </tr>
+                        <tr>
+                            <td>Prevent starvation</td>
+                            <td>Aging mechanism</td>
+                            <td>Additional computational overhead</td>
+                        </tr>
+                        <tr>
+                            <td>Maximize throughput</td>
+                            <td>SSTF disk scheduling</td>
+                            <td>Potential starvation (rejected)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- CLO Mapping -->
+        <div class="report-section">
+            <h2>10. CLO Mapping & Fulfillment</h2>
+            
+            <h3>10.1 CLO-1 (C2): Explain Fundamental OS Concepts</h3>
+            <p><strong>✅ Fulfilled through:</strong></p>
+            <ul>
+                <li>Detailed explanation of process and thread concepts</li>
+                <li>Process state diagrams and lifecycle documentation</li>
+                <li>Scheduling algorithm descriptions and rationale</li>
+                <li>System architecture layering explanation</li>
+            </ul>
+
+            <h3>10.2 CLO-2 (C3): Apply Core OS Concepts</h3>
+            <p><strong>✅ Fulfilled through:</strong></p>
+            <ul>
+                <li>Implementation of hybrid scheduling algorithm</li>
+                <li>Multi-threading model for city services</li>
+                <li>IPC mechanisms for inter-service communication</li>
+                <li>Synchronization primitives (mutex, semaphores)</li>
+            </ul>
+
+            <h3>10.3 CLO-3 (C4): Analyze Memory & Disk Scheduling</h3>
+            <p><strong>✅ Fulfilled through:</strong></p>
+            <ul>
+                <li>Memory allocation strategy comparison (Section 6.3)</li>
+                <li>Virtual memory and paging mechanism design</li>
+                <li>Disk scheduling algorithm analysis (Section 7.2)</li>
+                <li>Performance trade-off evaluation (Section 9.2)</li>
+            </ul>
+
+            <h3>10.4 CLO-4 (A3): Demonstrate Project Completion</h3>
+            <p><strong>✅ Fulfilled through:</strong></p>
+            <ul>
+                <li>Comprehensive project report with all sections</li>
+                <li>Interactive demonstration website with live simulation</li>
+                <li>Block diagrams and system architecture documentation</li>
+                <li>Presentation materials and viva-voce preparation</li>
+            </ul>
+        </div>
+
+        <!-- CEP Characteristics -->
+        <div class="report-section">
+            <h2>11. Complex Engineering Problem (CEP) Characteristics</h2>
+            
+            <h3>11.1 WP1: Depth of Knowledge (WK3-WK6)</h3>
+            <p>
+                Project requires advanced understanding of OS internals including scheduling algorithms, 
+                memory management, synchronization, and real-time systems.
+            </p>
+
+            <h3>11.2 WP2: Conflicting Requirements</h3>
+            <p>Balancing multiple conflicting objectives:</p>
+            <ul>
+                <li>Emergency response speed vs. fairness to other services</li>
+                <li>Memory efficiency vs. performance</li>
+                <li>Throughput vs. response time</li>
+                <li>Simplicity vs. robustness</li>
+            </ul>
+
+            <h3>11.3 WP3: Creative Modeling & Analysis</h3>
+            <p>
+                Novel application of OS concepts to smart city management, requiring creative design 
+                thinking and analytical trade-off evaluation.
+            </p>
+
+            <h3>11.4 WP7: Subsystem Interdependence</h3>
+            <p>
+                Multiple interconnected modules: process management, thread management, memory management, 
+                IPC, and disk scheduling all work together as an integrated system.
+            </p>
+        </div>
+
+        <!-- Challenges & Solutions -->
+        <div class="report-section">
+            <h2>12. Challenges Faced & Solutions</h2>
+            
+            <h3>12.1 Challenge: Priority Inversion</h3>
+            <p>
+                <strong>Problem:</strong> Low-priority utility service holding resources needed by emergency service.
+            </p>
+            <p>
+                <strong>Solution:</strong> Priority inheritance protocol - temporarily elevate priority of 
+                resource-holding process.
+            </p>
+
+            <h3>12.2 Challenge: Starvation of Low-Priority Services</h3>
+            <p>
+                <strong>Problem:</strong> Continuous emergency requests could starve utility management.
+            </p>
+            <p>
+                <strong>Solution:</strong> Aging mechanism gradually increases priority of waiting processes.
+            </p>
+
+            <h3>12.3 Challenge: Memory Fragmentation</h3>
+            <p>
+                <strong>Problem:</strong> Frequent process creation/termination causes memory fragmentation.
+            </p>
+            <p>
+                <strong>Solution:</strong> Compaction algorithm runs periodically during low-load periods.
+            </p>
+        </div>
+
+        <!-- Future Enhancements -->
+        <div class="report-section">
+            <h2>13. Future Enhancements</h2>
+            <ul>
+                <li><strong>Machine Learning Integration:</strong> Predictive scheduling based on historical patterns</li>
+                <li><strong>Distributed Architecture:</strong> Multi-node deployment for larger cities</li>
+                <li><strong>Real-time Analytics Dashboard:</strong> Live performance visualization</li>
+                <li><strong>IoT Sensor Integration:</strong> Direct hardware interface with city sensors</li>
+                <li><strong>Fault Tolerance:</strong> Redundancy and failover mechanisms</li>
+                <li><strong>Energy Optimization:</strong> Power-aware scheduling algorithms</li>
+            </ul>
+        </div>
+
+        <!-- Conclusion -->
+        <div class="report-section">
+            <h2>14. Conclusion</h2>
+            <p>
+                CityNexus successfully demonstrates the application of Operating System principles to real-world 
+                smart city management. By treating city services as processes with intelligent scheduling, 
+                multi-threading, and resource management, we achieve:
+            </p>
+            <ul>
+                <li>✅ Efficient resource utilization and allocation</li>
+                <li>✅ Real-time emergency response with priority-based preemption</li>
+                <li>✅ Scalable architecture supporting additional services</li>
+                <li>✅ Robust inter-service communication mechanisms</li>
+                <li>✅ Performance optimization through careful algorithm selection</li>
+            </ul>
+            <div class="highlight-box">
+                <p>
+                    <strong>Project Impact:</strong> This work bridges theoretical OS concepts with practical urban 
+                    management challenges, providing a framework that can be extended and deployed in actual smart 
+                    city implementations. All CLO and CEP requirements have been successfully fulfilled through 
+                    comprehensive design, implementation, and analysis.
+                </p>
+            </div>
+        </div>
+
+        <!-- References -->
+        <div class="report-section">
+            <h2>15. References</h2>
+            <ol>
+                <li>Silberschatz, A., Galvin, P. B., & Gagne, G. (2018). Operating System Concepts (10th ed.)</li>
+                <li>Tanenbaum, A. S., & Bos, H. (2014). Modern Operating Systems (4th ed.)</li>
+                <li>Stallings, W. (2018). Operating Systems: Internals and Design Principles (9th ed.)</li>
+                <li>Liu, J. W. S. (2000). Real-Time Systems. Prentice Hall</li>
+                <li>Smart Cities Initiative - IEEE Internet of Things Journal</li>
+            </ol>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--border-color);">
+            <a href="index.html" class="cta-button">View Interactive Demo</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 CityNexus Smart City OS - CEP-3 Project Report</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
